@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct hiit_timerApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

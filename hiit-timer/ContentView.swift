@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var workoutConfig: WorkoutConfig?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if let config = workoutConfig {
+                TimerView(workoutConfig: config) {
+                    workoutConfig = nil
+                }
+            } else {
+                InputView(workoutConfig: $workoutConfig)
+            }
         }
-        .padding()
     }
 }
 
